@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineThirdPersonFollow
   Damping: {x: 0.1, y: 0.5, z: 0.3}
-  ShoulderOffset: {x: 0, y: 0, z: 0}
+  ShoulderOffset: {x: 0, y: -1.1, z: 0}
   VerticalArmLength: 1.2
   CameraSide: 0
   CameraDistance: 0
@@ -234,7 +234,7 @@ Transform:
   m_GameObject: {fileID: 438625729}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000014671859, y: -0.0000000018339824, z: 2.6907932e-17, w: 1}
-  m_LocalPosition: {x: 0, y: 2.7, z: 0}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 795848653}
   - component: {fileID: 795848652}
   - component: {fileID: 795848655}
+  - component: {fileID: 795848656}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -405,11 +406,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d08618884e0db944b60799602b39b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.MouseMove
-  cameraRoot: {fileID: 0}
+  cameraRoot: {fileID: 1859940662}
   rotationSpeed: 1
-  sensivity: 100
+  sensivity: 70
   topClamp: 70
   bottomClamp: -30
+--- !u!54 &795848656
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795848650}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &816215918
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,11 +570,11 @@ Transform:
   m_GameObject: {fileID: 816215918}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000014671859, y: -0.0000000018339824, z: 2.6907932e-17, w: 1}
-  m_LocalPosition: {x: 0, y: 2.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0.100000024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1859940662}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &816215923
 MonoBehaviour:
@@ -1266,6 +1294,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1008703620}
+  - {fileID: 816215922}
   m_Father: {fileID: 795848651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &1859940664
@@ -1505,7 +1534,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2114283753834967213}
-  - {fileID: 816215922}
   - {fileID: 2084445384}
   - {fileID: 795848651}
   - {fileID: 438625733}

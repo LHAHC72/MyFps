@@ -15,6 +15,7 @@ namespace MyFps
 
         // 이름 입력 입력 값 wasd
         private Vector2 move;
+        private bool isSprint;
 
         // 마우스 입력 값 - 마우스 위치 이동
         private Vector2 look;

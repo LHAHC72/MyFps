@@ -34,7 +34,7 @@ namespace MyFps
         private void LateUpdate()
         {
             // 카메라 회전
-
+            CameraRotation();
         }
 
         #endregion
