@@ -21,6 +21,12 @@ namespace MySample
         [SerializeField] private bool isMove;
         [SerializeField] private bool isRun;
 
+        [SerializeField] private float walkSpeed = 4f;
+        [SerializeField] private float runSpeed = 4f;
+        [SerializeField] private float moveSpeed = 0;
+        [SerializeField] private float accelerationSpeed = 0.1f;
+
+        [SerializeField] private string velocity = "Velocity";
 
         // 애니 파라미터 스트링
         private string isMoving = "IsMove";
@@ -29,6 +35,7 @@ namespace MySample
         // 인풋 시스템
         public InputActionReference moveAction;
         public InputActionReference sprintAction;
+        
 
         #endregion
 
@@ -52,6 +59,17 @@ namespace MySample
                 isRun = value;
                 animator.SetBool(isRuning, value);
             }
+        }
+
+        public float MoveSpeed
+        {
+            get {  return moveSpeed; }
+            private set
+            {
+                moveSpeed = value;
+                animator.SetFloat(velocity, value);
+            }
+
         }
 
         #endregion
@@ -91,6 +109,28 @@ namespace MySample
             {
                 IsRun = false; // Shift키가 떼어지면 달리기 상태 해제
             }
+
+            // 걷기
+            if (IsMove && !IsRun)
+            {
+                if (moveSpeed > walkSpeed)
+                {
+                    moveSpeed -= accelerationSpeed;
+                    if (moveSpeed >= walkSpeed)
+                    {
+                        moveSpeed = walkSpeed;
+                    }
+                }
+                // 뛰기
+                else if (IsMove && IsRun)
+                {
+                    if (moveSpeed >= runSpeed)
+                    {
+                        moveSpeed = runSpeed;
+                    }
+                }
+            }
+
         }
     }
         #endregion

@@ -1,78 +1,96 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace MyFps
 {
-    // 플레이어 인풋을 관리하는 클래스 : 뉴인풋 버전
-
+    /// <summary>
+    /// 플레이어 인풋을 관리하는 클래스 : 뉴인풋
+    /// </summary>
     public class CharacterInput : MonoBehaviour
     {
-
-
-
-        #region Valuables
-        // inputSystem class 선언
+        #region Variables
+        //inputSystem class 인스턴스 선언
         private InputSystem_Actions inputActions;
 
-        // 이름 입력 입력 값 wasd
+        //이동 입력 값 - wasd
         private Vector2 move;
-        private bool isSprint;
+        [SerializeField] private bool isSprint;
 
-        // 마우스 입력 값 - 마우스 위치 이동
+        //마우스 입력값 - 마우스 위치 
         private Vector2 look;
 
-
-
-        // 외부에서 이동 입력값을 읽을 수 있도록 공개하는 프로퍼티
-        // public Vector2 Move => move;
-        public Vector2 Move {
-            get => move;
-            set => move = value;
-        }
-
-        // 외부에서 시선 입력값을 읽을 수 있도록 공개하는 프로퍼티
-        public Vector2 Look {
-            get => look;
-            set => look = value;
-        }
-
+        //점프
+        [SerializeField] private bool isJump;
         #endregion
 
+        #region Property
+        public Vector2 Move
+        {
+            get { return move; }
+            private set { move = value; }
+        }
 
+        public bool IsSprint
+        {
+            get { return isSprint; }
+            private set { isSprint = value; }
+        }
 
+        public Vector2 Look
+        {
+            get { return look; }
+            private set { look = value; }
+        }
 
+        public bool IsJump
+        {
+            get { return isJump; }
+            set { isJump = value; }
+        }
+        #endregion
 
-        #region Unity Event Methods
+        #region Unity Event Method
         private void Awake()
         {
-            // inputSystem class 초기화
+            //참조
+            //inputSystem class 인스턴스 생성
             inputActions = new InputSystem_Actions();
         }
 
         private void OnEnable()
         {
-            // inputSystem 활성화
+            //inputSystem class 인스턴스 활성화
             inputActions.Enable();
         }
+
         private void OnDisable()
         {
-            // inputSystem 비활성화
+            //inputSystem class 인스턴스 비활성화
             inputActions.Disable();
+
         }
-
-
 
         private void Update()
         {
-            // wasd 입력값 처리 : 인스턴스이름.액션맵이름.액션이름.readValue()
-            move = inputActions.Player.Move.ReadValue<Vector2>();
+            //value 입력값 처리 : 인스턴스이름.액션맵이름.액션이름.ReadValue
+            Move = inputActions.Player.Move.ReadValue<Vector2>();
             Look = inputActions.Player.Look.ReadValue<Vector2>();
 
-            
-
+            //버튼 입력값 처리
+            if (inputActions.Player.Jump.WasPressedThisFrame())
+            {
+                IsJump = true;
+            }
+            if(inputActions.Player.Sprint.WasPressedThisFrame())
+            {
+                IsSprint = true;
+            }
+            else if (inputActions.Player.Sprint.WasReleasedThisFrame())
+            {
+                IsSprint = false;
+            }
         }
-
         #endregion
-
 
     }
 }

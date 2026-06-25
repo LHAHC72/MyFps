@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &260355557
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -598,8 +598,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484429260}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.33678043, y: 0.0048041046, z: -0.0017181688, w: 0.94156945}
-  m_LocalPosition: {x: 0.024099331, y: 9.391643, z: -9.157004}
+  m_LocalRotation: {x: -0.0020939223, y: 0.9809904, z: -0.19375545, w: -0.010600493}
+  m_LocalPosition: {x: 0.060422476, y: 2.6270607, z: 4.134968}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1063,7 +1063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &919132148121251192
 Animator:
   serializedVersion: 7
@@ -1074,7 +1074,7 @@ Animator:
   m_GameObject: {fileID: 919132148121251191}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 632693d7d2765f840819196dfc1499dd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 756de13731066d34ebd96ddab7878c43, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1100,8 +1100,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MySample.CharacterAnimTest
   isMove: 0
   isRun: 0
+  walkSpeed: 4
+  runSpeed: 4
+  moveSpeed: 0
+  accelerationSpeed: 0.1
+  velocity: Velocity
   moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  sprintAction: {fileID: 0}
+  sprintAction: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!4 &1031632035383283088
 Transform:
   m_ObjectHideFlags: 0
