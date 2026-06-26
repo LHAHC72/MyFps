@@ -7,6 +7,11 @@ namespace MyFps
     /// </summary>
     public class AOpenning : MonoBehaviour
     {
+        #region
+        public SceneFader fader;
 
+
+
+        #endregion
     }
 }

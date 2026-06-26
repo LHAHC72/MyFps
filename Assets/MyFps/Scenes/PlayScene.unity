@@ -6728,6 +6728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923a048293c4228458531f9a3de2c934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyFps.AOpenning
+  fader: {fileID: 0}
 --- !u!4 &701430636
 Transform:
   m_ObjectHideFlags: 0
